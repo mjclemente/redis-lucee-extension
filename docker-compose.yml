@@ -1,0 +1,45 @@
+version: "3.7"
+
+services:
+  cfml:
+    build:
+      context: .
+      dockerfile: ./build/cfml/Dockerfile
+    volumes:
+        - ./app:/app
+    environment:
+      PORT: 8080
+      SSL_PORT: 8443
+      cfconfigfile: .CFConfig.json
+      # don't use in production
+      cfconfig_inspectTemplate: always
+      # also don't use in production
+      CF_ADMINPASSWORD: commandbox
+    ports:
+      - target: 8080
+        published: 8080
+      - target: 8443
+        published: 8443
+    networks:
+      - internal
+
+  redis:
+    image: redis:5.0.6-alpine
+    # Exposed so that we can inspect using a tool like Tableplus
+    ports:
+      - "6379:6379"
+    command:
+      - "--appendonly no"
+      - "--maxmemory 512mb"
+      - "--maxmemory-policy allkeys-lfu"
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD", "redis-cli","ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  internal:
+    driver: bridge

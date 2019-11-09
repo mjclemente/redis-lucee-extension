@@ -1,0 +1,7 @@
+{
+  "name": "lucee.redis.app",
+  "version": "1.0.0",
+  "dependencies":{
+    "docker-lex-install" : "0.0.1"
+  }
+}
