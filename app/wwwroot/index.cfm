@@ -15,8 +15,8 @@
   <div class="jumbotron">
     <div class="container">
       <h1 class="display-3">Redis Lucee Extension Example</h1>
-      <p>This is an example of using the Lucee CFML with an external session and object cache, stored in Redis. It's built using the CommandBox Docker image, along with the Ortus Redis Extension for Lucee.</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Docs and code on Github &raquo;</a></p>
+      <p>This is an example of using Lucee CFML with an external session and object cache, stored in Redis. It's built using the CommandBox Docker image, along with the Ortus Redis Extension for Lucee.</p>
+      <p><a class="btn btn-primary btn-lg" href="https://github.com/mjclemente/redis-lucee-extension" role="button">Docs and code on Github &raquo;</a></p>
     </div>
   </div>
   <main role="main" class="flex-shrink-0">
